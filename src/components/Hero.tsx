@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 
@@ -8,6 +9,7 @@ interface HeroProps {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  backgroundImage?: string;
   backgroundClass?: string;
 }
 
@@ -18,21 +20,24 @@ export default function Hero({
   ctaHref = "/contact",
   secondaryCtaText,
   secondaryCtaHref,
+  backgroundImage,
   backgroundClass = "bg-gradient-to-br from-navy-950 via-navy-900 to-steel-800",
 }: HeroProps) {
   return (
     <section className={`relative ${backgroundClass} overflow-hidden`}>
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+      {/* Background image */}
+      {backgroundImage && (
+        <Image
+          src={backgroundImage}
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          quality={85}
         />
-      </div>
+      )}
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-navy-950/70" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
         <div className="max-w-3xl">

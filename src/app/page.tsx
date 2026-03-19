@@ -54,6 +54,7 @@ export default function HomePage() {
         ctaHref="/contact"
         secondaryCtaText="View Our Work"
         secondaryCtaHref="/gallery"
+        backgroundImage="/images/hero.png"
       />
 
       {/* Why Choose Us */}
