@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import ServiceCard from "@/components/ServiceCard";
 import AnimatedSection from "@/components/AnimatedSection";
-import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -57,52 +55,6 @@ export default function HomePage() {
         secondaryCtaText="View Our Work"
         secondaryCtaHref="/gallery"
       />
-
-      {/* Trust Bar */}
-      <section className="bg-silver-50 border-b border-silver-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "15+", label: "Years Experience" },
-              { value: "2,000+", label: "Projects Completed" },
-              { value: "100%", label: "Satisfaction Rate" },
-              { value: "GTA-Wide", label: "Service Area" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-heading font-bold text-navy-900 text-2xl sm:text-3xl">
-                  {stat.value}
-                </div>
-                <div className="text-steel-500 text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <p className="text-steel-500 font-semibold text-sm uppercase tracking-wider mb-3">
-              What We Do
-            </p>
-            <h2 className="font-heading font-bold text-navy-900 text-3xl sm:text-4xl">
-              Our Services
-            </h2>
-            <p className="mt-4 text-steel-600 text-lg max-w-2xl mx-auto">
-              From concept to installation, we handle every step of your metalwork project with precision and care.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.slug} animation="fade-in-up" delay={i * 0.1}>
-                <ServiceCard service={service} index={i} />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="py-20 sm:py-24 bg-navy-950 text-white">
