@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Toughline Metal Works",
-  tagline: "Premium Metal Fabrication & Custom Metalwork in the GTA",
+  tagline: "Custom Metal Fabrication in the GTA",
   description:
     "Toughline Metal Works provides expert metal fabrication, security gates, window well covers, sheds, enclosures, and ornamental ironwork across the Greater Toronto Area.",
   url: "https://www.toughlinemetalworks.com",

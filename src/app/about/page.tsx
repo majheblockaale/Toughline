@@ -1,142 +1,106 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
-import AnimatedSection from "@/components/AnimatedSection";
+import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${siteConfig.name} — trusted metal fabrication and custom welding experts serving the Greater Toronto Area.`,
+  description: `Learn about ${siteConfig.name} — trusted metal fabrication experts serving the Greater Toronto Area.`,
 };
 
 export default function AboutPage() {
   return (
     <>
-      <Hero
-        title="About Toughline Metal Works"
-        subtitle="A family-owned metal fabrication shop built on quality, integrity, and hard work — serving the Greater Toronto Area."
-        backgroundClass="bg-gradient-to-br from-navy-950 via-navy-900 to-steel-700"
-      />
+      {/* Header */}
+      <section className="bg-brand-950 text-white py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl">About Us</h1>
+          <p className="mt-4 text-brand-300 text-lg max-w-2xl">
+            Precision metalwork rooted in craftsmanship, built for Canadian conditions.
+          </p>
+        </div>
+      </section>
 
       {/* Story */}
       <section className="py-20 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection animation="slide-in-left">
-              <p className="text-steel-500 font-semibold text-sm uppercase tracking-wider mb-3">
-                Our Story
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-brand-950 mb-6">
+              Who We Are
+            </h2>
+            <div className="space-y-5 text-brand-600 leading-relaxed">
+              <p>
+                Toughline Metal Works is a full-service metal fabrication shop serving
+                residential and commercial clients across the Greater Toronto Area.
+                We specialize in custom steel work — from security gates and window
+                well covers to ornamental ironwork and structural fabrication.
               </p>
-              <h2 className="font-heading font-bold text-navy-900 text-3xl sm:text-4xl mb-6">
-                Craftsmanship Meets Modern Fabrication
-              </h2>
-              <div className="space-y-4 text-steel-600 leading-relaxed">
-                <p>
-                  Toughline Metal Works was founded with a simple mission: deliver exceptional quality metalwork that stands the test of time. Based in the Greater Toronto Area, we have grown from a small welding shop into a full-service metal fabrication company trusted by homeowners, contractors, and businesses alike.
-                </p>
-                <p>
-                  Our team combines traditional metalworking craftsmanship with modern fabrication technology. Every project — whether it is a custom security gate, a set of window well covers, or a full structural steel installation — receives the same meticulous attention to detail.
-                </p>
-                <p>
-                  We believe in doing things right the first time. That means using premium materials, employing certified welders, and standing behind every piece of work that leaves our shop.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="slide-in-right">
-              <div className="bg-silver-100 rounded-2xl aspect-[4/3] flex items-center justify-center">
-                <div className="text-center text-steel-400">
-                  <svg className="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <p className="text-sm">Shop photo placeholder</p>
-                </div>
-              </div>
-            </AnimatedSection>
+              <p>
+                Every project starts with a conversation. We listen to your needs,
+                take precise measurements, and deliver finished metalwork that meets
+                the highest standards of quality and durability.
+              </p>
+              <p>
+                We source Canadian steel and materials, ensuring our products stand
+                up to harsh winters and demanding conditions. Our certified welders
+                bring years of experience to every weld, cut, and bend.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 sm:py-24 bg-silver-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <h2 className="font-heading font-bold text-navy-900 text-3xl sm:text-4xl">
-              Our Values
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="py-20 sm:py-24 bg-brand-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl text-brand-950 mb-10">
+            What Sets Us Apart
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Quality First",
-                description: "We never cut corners. Every joint, finish, and installation meets our exacting standards.",
-                icon: "🛡️",
+                title: "Precision Craftsmanship",
+                description:
+                  "Every weld, cut, and bend is executed with meticulous attention to detail by certified professionals.",
               },
               {
-                title: "Honest Pricing",
-                description: "Transparent, detailed quotes with no hidden fees. What we quote is what you pay.",
-                icon: "💰",
+                title: "Canadian Materials",
+                description:
+                  "We source high-quality Canadian steel, ensuring durability in our harsh climate.",
               },
               {
-                title: "On-Time Delivery",
-                description: "We respect your schedule. Projects are completed on time, every time.",
-                icon: "⏱️",
+                title: "GTA-Wide Service",
+                description:
+                  "From Toronto to Hamilton, Oshawa to Newmarket — we serve the entire Greater Toronto Area.",
               },
-              {
-                title: "Customer Focus",
-                description: "Your vision drives our work. We listen, advise, and deliver exactly what you need.",
-                icon: "🤝",
-              },
-            ].map((value, i) => (
-              <AnimatedSection key={value.title} animation="fade-in-up" delay={i * 0.1}>
-                <div className="bg-white rounded-2xl p-8 border border-silver-200 text-center h-full">
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h3 className="font-heading font-bold text-navy-900 text-lg mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-steel-600 text-sm leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </AnimatedSection>
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-xl p-8 border border-brand-100">
+                <h3 className="font-heading font-bold text-lg text-brand-950 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-brand-500 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <p className="text-steel-500 font-semibold text-sm uppercase tracking-wider mb-3">
-              How We Work
-            </p>
-            <h2 className="font-heading font-bold text-navy-900 text-3xl sm:text-4xl">
-              Our Process
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Consultation", description: "We visit your site, discuss your needs, take measurements, and understand your vision." },
-              { step: "02", title: "Design & Quote", description: "We create a detailed design and provide a transparent, fixed-price quote for your approval." },
-              { step: "03", title: "Fabrication", description: "Our skilled team fabricates your project in our shop using premium materials and techniques." },
-              { step: "04", title: "Installation", description: "Professional installation at your location, followed by a thorough quality inspection." },
-            ].map((item, i) => (
-              <AnimatedSection key={item.step} animation="fade-in-up" delay={i * 0.15}>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-navy-900 text-white font-heading font-bold text-lg rounded-2xl mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="font-heading font-bold text-navy-900 text-lg mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-steel-600 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+      {/* CTA */}
+      <section className="py-20 sm:py-24 bg-brand-950 text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
+            Let&apos;s Build Something Together
+          </h2>
+          <p className="text-brand-300 text-lg mb-8">
+            Tell us about your project and get a free quote.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-950 font-semibold rounded-lg hover:bg-brand-100 transition-colors text-base"
+          >
+            Get in Touch
+          </Link>
         </div>
       </section>
     </>

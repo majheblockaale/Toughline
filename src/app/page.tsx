@@ -1,8 +1,33 @@
+import Image from "next/image";
 import Link from "next/link";
-import Hero from "@/components/Hero";
-import AnimatedSection from "@/components/AnimatedSection";
-import { testimonials } from "@/data/testimonials";
 import { siteConfig } from "@/data/siteConfig";
+
+const services = [
+  {
+    title: "Security Gates",
+    description: "Custom steel gates for driveways, walkways, and commercial properties.",
+  },
+  {
+    title: "Window Well Covers",
+    description: "Durable steel covers for safety, drainage, and protection.",
+  },
+  {
+    title: "Metal Sheds & Structures",
+    description: "Steel-framed buildings that outlast wood — no rot, no pests.",
+  },
+  {
+    title: "Enclosures",
+    description: "HVAC, dumpster, and equipment enclosures built to code.",
+  },
+  {
+    title: "Welding & Fabrication",
+    description: "MIG, TIG, and stick welding for custom projects and repairs.",
+  },
+  {
+    title: "Ornamental Ironwork",
+    description: "Railings, fences, gates, and decorative metalwork.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -33,156 +58,113 @@ export default function HomePage() {
               longitude: siteConfig.geo.longitude,
             },
             openingHours: ["Mo-Fr 07:00-18:00", "Sa 08:00-15:00"],
-            areaServed: {
-              "@type": "GeoCircle",
-              geoMidpoint: {
-                "@type": "GeoCoordinates",
-                latitude: siteConfig.geo.latitude,
-                longitude: siteConfig.geo.longitude,
-              },
-              geoRadius: "80000",
-            },
           }),
         }}
       />
 
       {/* Hero */}
-      <Hero
-        title="Custom Metal Fabrication Built to Last"
-        subtitle="From security gates and window well covers to custom sheds and ornamental ironwork — Toughline Metal Works delivers precision-crafted steel solutions across the Greater Toronto Area."
-        ctaText="Get Free Quote"
-        ctaHref="/contact"
-        secondaryCtaText="View Our Work"
-        secondaryCtaHref="/gallery"
-        backgroundImage="/images/hero.png"
-      />
-
-      {/* Why Choose Us */}
-      <section className="py-20 sm:py-24 bg-navy-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <p className="text-steel-400 font-semibold text-sm uppercase tracking-wider mb-3">
-              Why Toughline
+      <section className="relative bg-brand-950 overflow-hidden">
+        <Image
+          src="/images/hero.png"
+          alt="Toughline Metal Works shop and fabrication"
+          fill
+          className="object-cover"
+          priority
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-brand-950/65" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 lg:py-44">
+          <div className="max-w-2xl">
+            <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight">
+              Custom Metal Fabrication Built to Last
+            </h1>
+            <p className="mt-6 text-brand-200 text-lg sm:text-xl leading-relaxed">
+              Precision-crafted steel solutions for residential and commercial
+              properties across the Greater Toronto Area.
             </p>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl">
-              Built Different. Built Better.
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Precision Craftsmanship",
-                description:
-                  "Every weld, cut, and bend is executed with meticulous attention to detail by certified professionals.",
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Canadian Materials",
-                description:
-                  "We source high-quality Canadian steel and materials, ensuring durability in our harsh climate.",
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                  </svg>
-                ),
-              },
-              {
-                title: "GTA-Wide Service",
-                description:
-                  "From Toronto to Hamilton, Oshawa to Newmarket — we serve the entire Greater Toronto Area.",
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                ),
-              },
-            ].map((item) => (
-              <AnimatedSection key={item.title} animation="fade-in-up">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-steel-700 rounded-2xl text-silver-300 mb-5">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-heading font-bold text-xl mb-3">{item.title}</h3>
-                  <p className="text-silver-400 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-950 font-semibold rounded-lg hover:bg-brand-100 transition-colors text-base"
+              >
+                Get Free Quote
+              </Link>
+              <Link
+                href="/gallery"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base"
+              >
+                View Our Work
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 sm:py-24 bg-silver-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <p className="text-steel-500 font-semibold text-sm uppercase tracking-wider mb-3">
-              Testimonials
-            </p>
-            <h2 className="font-heading font-bold text-navy-900 text-3xl sm:text-4xl">
-              What Our Clients Say
+      {/* Services */}
+      <section className="py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-brand-950">
+              What We Do
             </h2>
-          </AnimatedSection>
+            <p className="mt-3 text-brand-500 text-lg max-w-xl mx-auto">
+              From concept to installation — we handle it all.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.slice(0, 3).map((t, i) => (
-              <AnimatedSection key={i} animation="fade-in-up" delay={i * 0.1}>
-                <div className="bg-white rounded-2xl p-8 border border-silver-200 h-full flex flex-col">
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.rating }).map((_, j) => (
-                      <svg key={j} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-steel-600 text-sm leading-relaxed flex-1">
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div className="mt-6 pt-4 border-t border-silver-100">
-                    <div className="font-heading font-semibold text-navy-900 text-sm">
-                      {t.name}
-                    </div>
-                    <div className="text-steel-400 text-xs">
-                      {t.location} — {t.service}
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="p-6 rounded-xl border border-brand-100 hover:border-brand-300 hover:shadow-md transition-all"
+              >
+                <h3 className="font-heading font-bold text-lg text-brand-950 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-brand-500 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/services"
+              className="inline-flex items-center text-brand-600 font-semibold hover:text-brand-950 transition-colors text-sm"
+            >
+              View all services
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 sm:py-24 bg-gradient-to-br from-navy-900 to-steel-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-silver-300 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation quote for your metalwork project. We serve the entire Greater Toronto Area.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-900 font-semibold rounded-xl hover:bg-silver-100 transition-all hover:shadow-lg text-base"
-              >
-                Request Free Quote
-              </Link>
-              <a
-                href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-all text-base"
-              >
-                Call {siteConfig.phone}
-              </a>
-            </div>
-          </AnimatedSection>
+      <section className="py-20 sm:py-24 bg-brand-950 text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-brand-300 text-lg mb-8">
+            Get a free, no-obligation quote. We serve the entire GTA.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-950 font-semibold rounded-lg hover:bg-brand-100 transition-colors text-base"
+            >
+              Request Free Quote
+            </Link>
+            <a
+              href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base"
+            >
+              Call {siteConfig.phone}
+            </a>
+          </div>
         </div>
       </section>
     </>
