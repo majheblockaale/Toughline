@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Toughline Brand Colors (from logo) === */
+  --color-navy-50: #E8ECF2;
+  --color-navy-100: #C5CDDB;
+  --color-navy-200: #9EADC2;
+  --color-navy-300: #7790AA;
+  --color-navy-400: #587A98;
+  --color-navy-500: #3A6487;
+  --color-navy-600: #325A7C;
+  --color-navy-700: #284C6B;
+  --color-navy-800: #1F3D5B;
+  --color-navy-900: #1C2B4A;
+  --color-navy-950: #111827;
+
+  --color-steel-50: #F4F6F8;
+  --color-steel-100: #E2E7EC;
+  --color-steel-200: #C8D0D9;
+  --color-steel-300: #A8B4C0;
+  --color-steel-400: #8A9AAC;
+  --color-steel-500: #6E7E8F;
+  --color-steel-600: #5A6A7A;
+  --color-steel-700: #4A5768;
+  --color-steel-800: #3D4856;
+  --color-steel-900: #2D3544;
+  --color-steel-950: #1A1F2B;
+
+  --color-silver-50: #FAFBFC;
+  --color-silver-100: #F0F2F5;
+  --color-silver-200: #E4E8ED;
+  --color-silver-300: #D0D7DF;
+  --color-silver-400: #B8C4D0;
+  --color-silver-500: #9EACBA;
+  --color-silver-600: #8494A5;
+
+  --color-accent-500: #3B82F6;
+  --color-accent-600: #2563EB;
+
+  /* === Fonts === */
+  --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* === Animations === */
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-in-left: slide-in-left 0.6s ease-out forwards;
+  --animate-slide-in-right: slide-in-right 0.6s ease-out forwards;
+}
+
+/* === Keyframes === */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Base Styles === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-navy-950);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* === Staggered Animation Delays === */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
