@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
 import { services } from "@/data/services";
 
@@ -22,18 +23,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-steel-500 rounded-lg flex items-center justify-center group-hover:bg-navy-900 transition-colors">
-              <span className="text-white font-heading font-bold text-lg lg:text-xl">T</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-heading font-bold text-navy-900 text-lg leading-tight tracking-tight">
-                {siteConfig.name.split(" ").slice(0, 1)}
-              </div>
-              <div className="font-heading text-steel-500 text-xs uppercase tracking-widest">
-                Metal Works
-              </div>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/images/logo.png"
+              alt={siteConfig.name}
+              width={200}
+              height={56}
+              className="h-10 lg:h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
